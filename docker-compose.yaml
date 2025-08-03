@@ -1,0 +1,20 @@
+version: '3'
+services:
+  fuseki:
+    image: stain/jena-fuseki:latest
+    container_name: fuseki
+    ports:
+      - "3030:3030"
+    environment:
+      - ADMIN_PASSWORD=admin123
+    command: ["/jena-fuseki/fuseki-server", "--update", "--mem", "/ds"]  # メモリ内データセット「ds」を作成（更新許可）
+  webapp:
+    build: ./webapp    # バックエンド(Node.js + Express)のDockerfile配置ディレクトリ
+    container_name: webapp
+    depends_on:
+      - fuseki
+    ports:
+      - "8080:8080"
+    environment:
+      - FUSEKI_URL=http://fuseki:3030/ds
+      - NODE_ENV=production
