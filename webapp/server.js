@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 app.post('/api/upload-owl', async (req, res) => {
     try {
         const { owlData } = req.body;
-        
         const auth = Buffer.from('admin:admin123').toString('base64');
         
         const response = await axios.put(
@@ -42,7 +41,6 @@ app.post('/api/upload-owl', async (req, res) => {
 app.post('/api/query', async (req, res) => {
     try {
         const { query } = req.body;
-        
         const auth = Buffer.from('admin:admin123').toString('base64');
         
         const response = await axios.post(
@@ -67,7 +65,6 @@ app.post('/api/query', async (req, res) => {
 app.post('/api/reasoning-query', async (req, res) => {
     try {
         const { query } = req.body;
-        
         const auth = Buffer.from('admin:admin123').toString('base64');
         
         const response = await axios.post(

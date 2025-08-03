@@ -63,28 +63,32 @@
   </owl:ObjectProperty>
 
   <!-- Sample Individuals -->
-  <ex:Father rdf:about="http://example.org/family#John">
+  <owl:NamedIndividual rdf:about="http://example.org/family#John">
+    <rdf:type rdf:resource="http://example.org/family#Father"/>
     <rdfs:label>John</rdfs:label>
     <ex:hasChild rdf:resource="http://example.org/family#Mary"/>
     <ex:hasChild rdf:resource="http://example.org/family#Tom"/>
-  </ex:Father>
+  </owl:NamedIndividual>
 
-  <ex:Mother rdf:about="http://example.org/family#Jane">
+  <owl:NamedIndividual rdf:about="http://example.org/family#Jane">
+    <rdf:type rdf:resource="http://example.org/family#Mother"/>
     <rdfs:label>Jane</rdfs:label>
     <ex:hasChild rdf:resource="http://example.org/family#Mary"/>
     <ex:hasChild rdf:resource="http://example.org/family#Tom"/>
-  </ex:Mother>
+  </owl:NamedIndividual>
 
-  <ex:Child rdf:about="http://example.org/family#Mary">
+  <owl:NamedIndividual rdf:about="http://example.org/family#Mary">
+    <rdf:type rdf:resource="http://example.org/family#Child"/>
     <rdfs:label>Mary</rdfs:label>
     <ex:hasFather rdf:resource="http://example.org/family#John"/>
     <ex:hasMother rdf:resource="http://example.org/family#Jane"/>
-  </ex:Child>
+  </owl:NamedIndividual>
 
-  <ex:Child rdf:about="http://example.org/family#Tom">
+  <owl:NamedIndividual rdf:about="http://example.org/family#Tom">
+    <rdf:type rdf:resource="http://example.org/family#Child"/>
     <rdfs:label>Tom</rdfs:label>
     <ex:hasFather rdf:resource="http://example.org/family#John"/>
     <ex:hasMother rdf:resource="http://example.org/family#Jane"/>
-  </ex:Child>
+  </owl:NamedIndividual>
 
 </rdf:RDF>
