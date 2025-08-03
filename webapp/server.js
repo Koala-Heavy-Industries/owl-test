@@ -19,12 +19,15 @@ app.post('/api/upload-owl', async (req, res) => {
     try {
         const { owlData } = req.body;
         
+        const auth = Buffer.from('admin:admin123').toString('base64');
+        
         const response = await axios.put(
             `${FUSEKI_URL}/data?default`,
             owlData,
             {
                 headers: {
-                    'Content-Type': 'application/rdf+xml'
+                    'Content-Type': 'application/rdf+xml',
+                    'Authorization': `Basic ${auth}`
                 }
             }
         );
@@ -40,13 +43,16 @@ app.post('/api/query', async (req, res) => {
     try {
         const { query } = req.body;
         
+        const auth = Buffer.from('admin:admin123').toString('base64');
+        
         const response = await axios.post(
             `${FUSEKI_URL}/query`,
             `query=${encodeURIComponent(query)}`,
             {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    'Accept': 'application/sparql-results+json'
+                    'Accept': 'application/sparql-results+json',
+                    'Authorization': `Basic ${auth}`
                 }
             }
         );
@@ -62,13 +68,16 @@ app.post('/api/reasoning-query', async (req, res) => {
     try {
         const { query } = req.body;
         
+        const auth = Buffer.from('admin:admin123').toString('base64');
+        
         const response = await axios.post(
             `${FUSEKI_URL}/query`,
             `query=${encodeURIComponent(query)}`,
             {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    'Accept': 'application/sparql-results+json'
+                    'Accept': 'application/sparql-results+json',
+                    'Authorization': `Basic ${auth}`
                 }
             }
         );
